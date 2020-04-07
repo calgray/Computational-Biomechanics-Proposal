@@ -1,0 +1,30 @@
+% Problem Identification
+% What is the problem that you are trying to solve, or the hypothesis that you are intending to test? What is your intended contribution to the state of the art?
+% Marking
+% The proposal clearly states the contribution that the student seeks to make within the field of study. The reader is able to identify the problem to be solved,hypothesis to be tested or question to be answered
+% Mark/10, Weight = 2
+
+
+%http://isml.ecm.uwa.edu.au/ISML/Publication/pdfs/2010hortonmillerIJfNMiBEmeshless.pdf
+
+%Surgical training and planning requires large amounts of human image analysis and processing often performed by comparing and swapping between 2D planar slices of a full 3D scan. While specialists are trained to plan surgical intervention using this method, there are alternative approaches to visualizing 3D data that may provided more intuitive approaches to planning surgical interventions.
+
+The challenges of surgical intervention planning consists of identifying the anatomical situation of the patient using a 3D image typically from an MRI or CT scan followed by planning of objectives and trajectories. This planning typically requires large amounts of training and familiarity in the respective area of operation to plan and execute high success rates. When human resources and surgeon experience is limited, providing alternative and multiple comprehensible methods of presenting patient information is of value.
+
+% need citation
+%[Something about accuracy and why this needs meshlesh instead of finite element for simulation]
+
+A potential tool to assist in surgical intervention planning is a virtual reality platform capable of aiding the creation of an intervention strategy and simulating parts of the same strategy by performing finite Lagrangian explicit dynamics algorithms on simulated very soft tissue material constructed from patient CT and MRI data.
+
+% total Lagrangian explicit dynamic
+
+%Post Processor and PreProcessor to a cloud of points using a Total Lagrangian explicit dynamics algorithm.
+
+In the open software there is MRI and CT data visualization and intervention simulation tools are available via the 3D Slicer software platform which is capable of performing dynamic simulation and visualisation of soft tissue from 3D data, real-time tracking of navigated instruments \cite{Ungi2016} and real-time visualization in virtual reality.
+%(Need something about why this VR solution addresses problems mentioned here) \cite{Peters2016}
+Currently there is no formal approach for integrating computational biomechanics simulations with virtual reality to visualize surgical intervention in the open source and free software domain.
+
+% Fine. That I guess that more detailed/specific information is need. 
+%Any specific VR libraries to be used? Data sets for testing? 
+%Perhaps you can mention that you are planning to use the training data-sets available in 3D Slicer and results of computational biomechanics simulations obtained at our lab.
+%This will likely include (but does not have to be limited to) results of computations of brain deformations for neurosurgical planning/navigation.

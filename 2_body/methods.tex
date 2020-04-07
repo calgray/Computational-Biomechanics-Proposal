@@ -1,0 +1,68 @@
+\begin{comment}
+Compiler Suite
+* CMake
+* Visual Studio 15 2017 Win64
+* CMake 3.17.0-rc2
+* Qt 5.13.0
+\end{comment}
+
+%  Methodology and Progress to Date
+% How you plan to solve the problem or resolve the hypothesis.  Summarise your progress towards the project’s objectives.  This might include preliminary results. 
+% Marking
+% The proposal presents a reasonable plan to address the problem given the student's experience in the area of study.
+% Mark/10, Weight = 2
+
+The method for solving the challenges in this project can divided into 3 areas:
+
+\subsection{Input}
+The current virtual reality extensions of the 3D Slicer software platform consist of a virtual reality module that utilizes head tracking for a user to transform themself around a Slicer scene in addition to viewing a stereoscopic perspective of models and slices of these at the camera near clipping plane. The proposed input component of this project will consist of additionally providing a means for a user of a virtual reality headset to:
+
+\begin{itemize}
+  \item orientate and transform models
+  \item place and remove models
+  \item start and stop simulation
+  \item control visualization settings (either via virtual sliders or swapping between settings) for: contrast, transparency, overlaying first and last frame, colorization by classification, stress, strain and density.
+\end{itemize}
+
+Each of the above items are currently possible to perform using the standard Slicer 3D interface but not available to a user wearing a virtual reality headset. Two of the most popular VR platforms for desktop, Oculus Rift and HTC Vive, provide handheld motion tracking devices consisting of 4 buttons and joystick per hand that allow for more instinctive user interaction via grabbing and pointing approaches as apposed to memorization of key mappings.
+
+For this section the proposed method for input is to provide a virtual workbench where a user can select select a variety of virtual tools via grabbing items from the workbench that contain specific functionality that integrates with the virtual reality touch controllers.
+
+\subsubsection{Basic Virtual Tools}
+Virtual tools to be made will include following basic tools:
+\begin{itemize}
+\item Select Tool - special tool for selecting models by raycasting from the users pointing hand tracker to first intersected model surface. Selection is then performed by pressing holding a button on the opposite hand and visual indicator shows the item is selected for use by the other virtual reality tools.
+\item Helping Hands Tool - For transforming a selected model into a fixed position and orientation (excludes scaling).
+\item Scaling Tool - For scaling one or more model/s to a discrete set of scale ratios.
+\item Info Tool - For displaying and modifying properties of a selected model.
+\end{itemize}
+
+\subsubsection{Advanced Virtual Tools}
+To assist in the planning of surgery within Slicer, the following advanced tools will be considered for creation to manipulate models:
+\begin{itemize}
+\item Segmentation Paint Tool - Tool that can paint and erase segment areas. 
+\item Surface Tool - A tool that can modify the surface boundary of a segment with respect to properties of the parent model.
+\item Segmentation Tool - A tool that can 3D paint multiple segmentations of model for viewing.
+\item Cutting Tool - Casts a ray through a segmentation to convert it into two segmentations. This could be useful for interventions that involve extraction or re-positioning of bones and organs. 
+\item Animation Tool - Provides controls to plays and animate a planned intervention.
+\end{itemize}
+
+\subsection{Visualization}
+The visualization component of this project will consist of providing a time series animated view of the simulated material which may additionally be viewed in conjunction with either the first and last frame of surgery using transparency layers.
+
+Slicer 3D uses 3 seperate scene hierarchies each for for subjects, their transforms and segmentations. While A regular user with a screen has access and control of these lists, a virtual reality user only has control over the model to room transform.
+
+\subsubsection{Model View and Selection}
+Slicer Virtual Reality is currently only capable of displaying the first available model in the the scene. This view extension will provide the ability for a user to select which model they wish to work with.  
+
+\subsubsection{Segmentation View and Selection}
+Segmentations of a model are shaded in separate colors by default but provides no visual stimulus for selecting segmentation The two proposed approaches for selection in this context is to either display a 3D bounding box of the the currently selected segmentation or to provide a blue outline shading effect to indicate which segmentation is selected (even within a group of superimposed segmentations). 
+
+\subsubsection{Animation View}
+Animation is available within Slicer 3D but there exists no means of playing, stopping and controlling segmentation visibility within virtual reality. A new view is proposed that will allow for a user to separately play animations for surgical simulation with the possibility of allowing pre-calculated model deformations where possible.
+
+\subsection{Performance}
+Virtual reality performance is a critical area for practicality reasons whereby a minimum frame rate must be achieved on modern systems in order for user experiences to be positive. This project will aim for providing at least a 60fps to meet acceptable 20ms end-end delay time guidelines \cite{RaaenKjetil2015MLiV} by measuring average frame rate with a modern high performance GPU and 8 virtual cores for processing on test datasets. This will be performed using the integrated SteamVR GPU profiler.
+
+Any issues that prevent this condition from being met will be investigated and documented for further evaluation.
+
