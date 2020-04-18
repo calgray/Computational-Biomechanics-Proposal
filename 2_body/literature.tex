@@ -49,18 +49,34 @@ A meshless Total Lagrangian explicit dynamics algorithm for surgical simulation
 
 \subsection{Surgical Simulation}
 
-As part of ongoing efforts of reducing costs to meet the rising expectations for accessible health care, computer-integrated surgery (CIS) is an area of technological advancement being developed to overcome the limitations of traditional surgery. Surgical simulation is a particular area of CIS aimed to model and simulate deformable materials for applications requiring real-time interaction such as simulation-based training, skills assessment and operation planning.\cite{Miller2007} While many accurate real-time simulations exist for a variety of traditional engineering processes such as mining, transport, construction and control systems, extending the success of computational mechanics to biological fields such as biomedical science and medicine has proven challenging. \cite{Tinsley2003}
+As part of ongoing efforts of reducing costs to meet the rising expectations for accessible health care, computer-integrated surgery (CIS) is an area of technological advancement being developed to overcome the limitations of traditional surgery. Surgical simulation is a particular area of CIS aimed to model and simulate deformable materials for applications requiring real-time interaction such as simulation-based training, skills assessment and operation planning.\cite{Miller2007} While many accurate real-time simulations exist for a variety of traditional engineering processes such as mining, transport, construction and control systems, extending the success of computational mechanics to biological fields such as biomedical science and medicine has proven challenging \cite{TinsleyOden2003}.
 
 \subsection{Reliability of Computational Mechanics}
 
-Reliability in the area of computer-generated predictions is one of the major concerns to specialists in their respective areas. The process in which this is managed is known as verification and validation. In the context of computational mechanics, validation relates to determining the appropriateness of the scientific principles and mathematical models used, and verification relates to determining if the final tool can correctly produce results consistent with the model it is based upon. \cite{Tinsley2003}
+Reliability in the area of computer-generated predictions is one of the major concerns to specialists in their respective areas. The process in which this is managed is known as verification and validation. In the context of computational mechanics, validation relates to determining the appropriateness of the scientific principles and mathematical models used, and verification relates to determining if the final tool can correctly produce results consistent with the model it is based upon \cite{TinsleyOden2003}.
 
-Existing methods for surgical simulation have heavily relied on techniques for simulating soft body dynamics have typically been explored using total Lagrangian explicit dynamics (TLED) which have produced result  
+Due to soft tissue material exhibiting infinitesimal non-linear deformations not suitable for conventional finite element analysis (FEA), \cite{Wittek2007} current research and methods for surgical simulation have heavily relied on techniques such as Meshless Total Lagrangian explicit dynamics (TLED) to overcome a number of practical challenges for surgical simulation.
+
+First, computational grids must be obtained from standard diagnostic medical images automatically and rapidly. It is common for Lagrangian methods to utilize both nodes and mesh of edges to represent surface boundaries which requires large amounts of pre-processing to build surfaces from scan data. Meshless Total Lagrangian explict dynamics (MTLED) circumvents the difficulty of this issue \cite{Joldes2019}.
+
+Second, human Tissue undergoes very large strains in the vicinity of surgical tools that finite element methods cannot reliably simulate due to excessive element distortion, wheras MTLED give sreilable results for compressive strains exceeding 70\% \cite{Joldes2019}.
+
+Third, surgical manipulation not only large deformations of soft tissue but also and cutting and damage that remains largely unsolved for real-time simulation \cite{Joldes2019}. This can be achieved either via tetrahedra-based cutting methods \cite{10.1007/978-1-4419-9619-0_7} or through reassigning neighbors in MTLED methods \cite{Joldes2019}.
+
+%Some of the challenges in applying a TLED simulation model to surgical intervention includes:
+%TLED approach addresses some of the challenges in accurately modelling the response of organic materials that may be experienced in simulation, namely:
+%\begin{itemize}
+%\item Computational grids must be obtained from standard diagnostic medical images
+%Meshless does not need surfaces
+%\item Human tissues undergo very large strains in the vicinity of contact with a surgical tool %MTLED methods gives reliable results for compressive strains exceeding 70\%
+%\item surgical manipulation involves not only large deformations of soft tissue but also cutting and damage. 
+%\end{itemize}
+%Meshless Total Lagrangian explicit dynamics (MTLED) addresses these issues \cite{Joldes2019} with boundary conditions and as such is considered in the formulation of pre-processors.
 
 \subsection{Virtual Reality}
 
-One of the challenges in producing detailed virtual simulations is creating robust interfaces for setup and interaction Virtual reality has been considered for surgical simulation for several years and produced a variety of successful results as technology advances. In the area of surgical simulation, virtual reality primarily involves two major computational areas that are the simulating a surgical substrate that must be virtual but realistic, and providing a means by which an operator can interact reciprocally with the system. \cite{Spicer2004}
+One of the challenges in producing detailed virtual simulations is creating robust interfaces for setup and interaction Virtual reality has been considered for surgical simulation for several years and produced a variety of successful results as technology advances. In the area of surgical simulation, virtual reality primarily involves two major computational areas that are the simulating a surgical substrate that must be virtual but realistic, and providing a means by which an operator can interact reciprocally with the system \cite{Wei2014}.
 
 %Simplified virtual reality:
 %Augmented virtual reality:
-In this proposal virtual reality will refer to immersive virtual reality whereby the virtual environment aims to provide maximal primary sensory input/output. These systems may be supported by the use of props.
+In the context of this proposal, the term virtual reality will refer to \textit{immersive virtual reality} whereby the virtual environment aims to provide maximal primary sensory input/output. This differs from similar definitions such as \textit{simplified virtual reality} which to a greater or lesser extent refers only to a virtual environment, and \textit{augment virtual reality} which only provides a user interface to supplement primary sensory input/output that may additionally be supported by the use of props \cite{Spicer2004}.

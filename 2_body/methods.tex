@@ -40,9 +40,7 @@ Virtual tools to be made will include following basic tools:
 \subsubsection{Advanced Virtual Tools}
 To assist in the planning of surgery within Slicer, the following advanced tools will be considered for creation to manipulate models:
 \begin{itemize}
-\item Segmentation Paint Tool - Tool that can paint and erase segment areas. 
-\item Surface Tool - A tool that can modify the surface boundary of a segment with respect to properties of the parent model.
-\item Segmentation Tool - A tool that can 3D paint multiple segmentations of model for viewing.
+\item Segmentation Paint Tool - Tool to paint and erase segment areas. 
 \item Cutting Tool - Casts a ray through a segmentation to convert it into two segmentations. This could be useful for interventions that involve extraction or re-positioning of bones and organs. 
 \item Animation Tool - Provides controls to plays and animate a planned intervention.
 \end{itemize}
@@ -50,7 +48,7 @@ To assist in the planning of surgery within Slicer, the following advanced tools
 \subsection{Visualization}
 The visualization component of this project will consist of providing a time series animated view of the simulated material which may additionally be viewed in conjunction with either the first and last frame of surgery using transparency layers.
 
-Slicer 3D uses 3 seperate scene hierarchies each for for subjects, their transforms and segmentations. While A regular user with a screen has access and control of these lists, a virtual reality user only has control over the model to room transform.
+Slicer 3D uses 3 separate scene hierarchies each for for subjects, their transforms and segmentations. While A regular user with a screen has access and control of these lists, a virtual reality user only has control over the model to room transform.
 
 \subsubsection{Model View and Selection}
 Slicer Virtual Reality is currently only capable of displaying the first available model in the the scene. This view extension will provide the ability for a user to select which model they wish to work with.  
@@ -61,8 +59,8 @@ Segmentations of a model are shaded in separate colors by default but provides n
 \subsubsection{Animation View}
 Animation is available within Slicer 3D but there exists no means of playing, stopping and controlling segmentation visibility within virtual reality. A new view is proposed that will allow for a user to separately play animations for surgical simulation with the possibility of allowing pre-calculated model deformations where possible.
 
-\subsection{Performance}
-Virtual reality performance is a critical area for practicality reasons whereby a minimum frame rate must be achieved on modern systems in order for user experiences to be positive. This project will aim for providing at least a 60fps to meet acceptable 20ms end-end delay time guidelines \cite{RaaenKjetil2015MLiV} by measuring average frame rate with a modern high performance GPU and 8 virtual cores for processing on test datasets. This will be performed using the integrated SteamVR GPU profiler.
+\subsection{Performance Profiling}
+Virtual reality performance is a critical area for practicality reasons whereby a minimum frame rate must be achieved on modern systems in order for user experiences to be positive. This project will aim for providing at least 50 frames per seconds to meet acceptable 20ms end-end delay time guidelines \cite{Raaen2018} by measuring average frame rate with a modern high performance GPU and 8 virtual cores for processing on test datasets. This will be performed using the integrated SteamVR GPU profiler.
 
 Any issues that prevent this condition from being met will be investigated and documented for further evaluation.
 
